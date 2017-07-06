@@ -18,11 +18,13 @@
           var url = "<%= ouathLightningURL %>";
           var token = "Bearer "+"<%= oauthtoken %>";
           console.log(token);
-            $Lightning.use("SEDreamin:SalesLeaderBoardVfApp", function() {
-                  $Lightning.createComponent("SEDreamin:SalesLeaderMain", {},
+            $Lightning.use("c:sampleApp", function() {
+                  $Lightning.createComponent("c:sampleComponent", {},
                      "leaderboard",
                       function(cmp) {
-                         // do some stuff
+                           var myExternalEvent;
+                    myExternalEvent = $A.get("e.c:sampleEvent");
+                    myExternalEvent.fire();
                       });
             },url,token );
         </script>
